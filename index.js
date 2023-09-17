@@ -1,8 +1,16 @@
 require ("dotenv").config();
 const express = require ("express");
+
+const app = express();
+const indexRouter = require("./routes");
+
 const port = +process.env.port || 3000;
 
-const indexRouter = require("./routes");
+const DB_URL = process.env.DB_URL || "mongodb://127.0.1:27010/test";
+
+mongoose.connect(DB_URL).then( () => {
+    console.log("Database Connected");
+})
 
 app.use(express.json());
 
