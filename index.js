@@ -1,5 +1,7 @@
 require ("dotenv").config();
 const express = require ("express");
+const mongoose = require("mongoose");
+
 
 const app = express();
 const indexRouter = require("./routes");
@@ -29,4 +31,4 @@ app.use((err, req, res, next) => {
 app.listen(port, () => {
     console.log(`app is running on port:` ${port});
 
-})
+});
